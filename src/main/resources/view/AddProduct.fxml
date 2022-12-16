@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddProductController">
    <children>
       <GridPane layoutX="78.0" layoutY="108.0" vgap="5.0">
          <columnConstraints>
@@ -36,24 +36,24 @@
             <Label text="Inv" GridPane.rowIndex="2" />
             <Label text="Price/Cost" GridPane.rowIndex="3" />
             <Label text="Max" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="addProductIdTxt" GridPane.columnIndex="1" />
+            <TextField fx:id="addProductNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="addProductInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="addProductPriceTxt" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="addProductMaxTxt" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <TextField fx:id="addProductMinTxt" prefHeight="25.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
@@ -70,24 +70,24 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="925.0" layoutY="63.0" prefHeight="25.0" prefWidth="208.0" promptText="Search by Part ID or Name" />
+      <TextField fx:id="addProductSearchTxt" layoutX="925.0" layoutY="63.0" prefHeight="25.0" prefWidth="208.0" promptText="Search by Part ID or Name" />
       <VBox alignment="CENTER_RIGHT" layoutX="613.0" layoutY="92.0" prefHeight="516.0" prefWidth="594.0" spacing="20.0">
          <children>
-            <TableView prefHeight="153.0" prefWidth="520.0">
+            <TableView fx:id="addProductAllPartsTableView" prefHeight="153.0" prefWidth="520.0">
                <columns>
-                  <TableColumn prefWidth="130.0" text="Part ID" />
-                  <TableColumn minWidth="5.3333740234375" prefWidth="130.0" text="Part Name" />
-                  <TableColumn prefWidth="130.0" text="Inventory Level" />
-                  <TableColumn prefWidth="130.0" text="Price / Cost per Unit" />
+                  <TableColumn fx:id="addProductAllPartsIdCol" prefWidth="130.0" text="Part ID" />
+                  <TableColumn fx:id="addProductAllPartsNameCol" minWidth="5.3333740234375" prefWidth="130.0" text="Part Name" />
+                  <TableColumn fx:id="addProductAllPartsInvCol" prefWidth="130.0" text="Inventory Level" />
+                  <TableColumn fx:id="addProductAllPartsPriceCol" prefWidth="130.0" text="Price / Cost per Unit" />
                </columns>
             </TableView>
             <Button mnemonicParsing="false" prefWidth="80.0" text="Add" />
-            <TableView prefHeight="153.0" prefWidth="520.0">
+            <TableView fx:id="addProductAssocPartsTableView" prefHeight="153.0" prefWidth="520.0">
                <columns>
-                  <TableColumn prefWidth="130.0" text="Part ID" />
-                  <TableColumn minWidth="5.3333740234375" prefWidth="130.0" text="Part Name" />
-                  <TableColumn prefWidth="130.0" text="Inventory Level" />
-                  <TableColumn prefWidth="130.0" text="Price / Cost per Unit" />
+                  <TableColumn fx:id="addProductAssocPartsIdCol" prefWidth="130.0" text="Part ID" />
+                  <TableColumn fx:id="addProductAssocPartsNameCol" minWidth="5.3333740234375" prefWidth="130.0" text="Part Name" />
+                  <TableColumn fx:id="addProductAssocPartsInvCol" prefWidth="130.0" text="Inventory Level" />
+                  <TableColumn fx:id="addProductAssocPartsPriceCol" prefWidth="130.0" text="Price / Cost per Unit" />
                </columns>
             </TableView>
             <HBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="519.0" spacing="15.0">
