@@ -1,16 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.AddProductController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane layoutX="78.0" layoutY="108.0" vgap="5.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.33331298828125" minWidth="10.0" prefWidth="98.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.33334350585938" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.3333740234375" minWidth="10.0" prefWidth="61.33333333333334" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.3333740234375" minWidth="10.0" prefWidth="150.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="ID" />
+            <Label text="Name" GridPane.rowIndex="1" />
+            <Label text="Inv" GridPane.rowIndex="2" />
+            <Label text="Price/Cost" GridPane.rowIndex="3" />
+            <Label text="Max" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField prefHeight="25.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="58.0" text="Min  " GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+      <Label layoutX="78.0" layoutY="66.0" text="Add Product">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="925.0" layoutY="63.0" prefHeight="25.0" prefWidth="208.0" promptText="Search by Part ID or Name" />
+      <VBox alignment="CENTER_RIGHT" layoutX="613.0" layoutY="92.0" prefHeight="516.0" prefWidth="594.0" spacing="20.0">
+         <children>
+            <TableView prefHeight="153.0" prefWidth="520.0">
+               <columns>
+                  <TableColumn prefWidth="130.0" text="Part ID" />
+                  <TableColumn minWidth="5.3333740234375" prefWidth="130.0" text="Part Name" />
+                  <TableColumn prefWidth="130.0" text="Inventory Level" />
+                  <TableColumn prefWidth="130.0" text="Price / Cost per Unit" />
+               </columns>
+            </TableView>
+            <Button mnemonicParsing="false" prefWidth="80.0" text="Add" />
+            <TableView prefHeight="153.0" prefWidth="520.0">
+               <columns>
+                  <TableColumn prefWidth="130.0" text="Part ID" />
+                  <TableColumn minWidth="5.3333740234375" prefWidth="130.0" text="Part Name" />
+                  <TableColumn prefWidth="130.0" text="Inventory Level" />
+                  <TableColumn prefWidth="130.0" text="Price / Cost per Unit" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="519.0" spacing="15.0">
+               <children>
+                  <Button mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: 608E86;" text="Save" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="Cancel" />
+                  <Button mnemonicParsing="false" prefWidth="160.0" text="Remove Associated Part" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" right="75.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
