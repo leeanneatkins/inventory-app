@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProductController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProductController">
    <children>
       <GridPane layoutX="78.0" layoutY="108.0" vgap="5.0">
          <columnConstraints>
@@ -81,7 +81,7 @@
                   <TableColumn fx:id="modProductAllPartsPriceCol" prefWidth="130.0" text="Price / Cost per Unit" />
                </columns>
             </TableView>
-            <Button mnemonicParsing="false" prefWidth="80.0" text="Add" />
+            <Button mnemonicParsing="false" onAction="#onActionAddPartToProduct" prefWidth="80.0" text="Add" />
             <TableView fx:id="modProductAssocPartsTableView" prefHeight="153.0" prefWidth="520.0">
                <columns>
                   <TableColumn fx:id="modProductAssocPartsIdCol" prefWidth="130.0" text="Part ID" />
@@ -92,9 +92,9 @@
             </TableView>
             <HBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="519.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: 608E86;" text="Save" />
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="Cancel" />
-                  <Button mnemonicParsing="false" prefWidth="160.0" text="Remove Associated Part" />
+                  <Button mnemonicParsing="false" onAction="#onActionSaveModifyProduct" prefWidth="80.0" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#onActionCancelModifyProduct" prefWidth="80.0" text="Cancel" />
+                  <Button mnemonicParsing="false" onAction="#onActionRemoveAssocPart" prefWidth="160.0" text="Remove Associated Part" />
                </children>
             </HBox>
          </children>

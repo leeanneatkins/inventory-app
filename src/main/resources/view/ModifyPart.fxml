@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyPartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyPartController">
    <children>
       <VBox prefHeight="500.0" prefWidth="600.0">
          <children>
@@ -75,8 +75,8 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="163.0" prefWidth="500.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="Save" />
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="Cancel" />
+                  <Button mnemonicParsing="false" onAction="#onActionSaveModifyPart" prefWidth="80.0" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#onActionCancelModifyPart" prefWidth="80.0" text="Cancel" />
                </children>
                <padding>
                   <Insets bottom="60.0" />
