@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,31 +20,31 @@ public class ModifyProductController implements Initializable{
     Parent scene;
 
     @FXML
-    private TableColumn<?, ?> modProductAllPartsIdCol;
+    private TableColumn<Part, Integer> modProductAllPartsIdCol;
 
     @FXML
-    private TableColumn<?, ?> modProductAllPartsInvCol;
+    private TableColumn<Part, Integer> modProductAllPartsInvCol;
 
     @FXML
-    private TableColumn<?, ?> modProductAllPartsNameCol;
+    private TableColumn<Part, String> modProductAllPartsNameCol;
 
     @FXML
-    private TableColumn<?, ?> modProductAllPartsPriceCol;
+    private TableColumn<Part, Double> modProductAllPartsPriceCol;
 
     @FXML
     private TableView<?> modProductAllPartsTableView;
 
     @FXML
-    private TableColumn<?, ?> modProductAssocPartsIdCol;
+    private TableColumn<Part, Integer> modProductAssocPartsIdCol;
 
     @FXML
-    private TableColumn<?, ?> modProductAssocPartsInvCol;
+    private TableColumn<Part, Integer> modProductAssocPartsInvCol;
 
     @FXML
-    private TableColumn<?, ?> modProductAssocPartsNameCol;
+    private TableColumn<Part, String> modProductAssocPartsNameCol;
 
     @FXML
-    private TableColumn<?, ?> modProductAssocPartsPriceCol;
+    private TableColumn<Part, Double> modProductAssocPartsPriceCol;
 
     @FXML
     private TableView<?> modProductAssocPartsTableView;

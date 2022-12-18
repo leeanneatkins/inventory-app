@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,34 +21,34 @@ public class AddProductController implements Initializable{
     Parent scene;
 
     @FXML
-    private TableColumn<?, ?> addProductAllPartsIdCol;
+    private TableColumn<Part, Integer> addProductAllPartsIdCol;
 
     @FXML
-    private TableColumn<?, ?> addProductAllPartsInvCol;
+    private TableColumn<Part, Integer> addProductAllPartsInvCol;
 
     @FXML
-    private TableColumn<?, ?> addProductAllPartsNameCol;
+    private TableColumn<Part, String> addProductAllPartsNameCol;
 
     @FXML
-    private TableColumn<?, ?> addProductAllPartsPriceCol;
+    private TableColumn<Part, Double> addProductAllPartsPriceCol;
 
     @FXML
-    private TableView<?> addProductAllPartsTableView;
+    private TableView<Part> addProductAllPartsTableView;
 
     @FXML
-    private TableColumn<?, ?> addProductAssocPartsIdCol;
+    private TableColumn<Part, Integer> addProductAssocPartsIdCol;
 
     @FXML
-    private TableColumn<?, ?> addProductAssocPartsInvCol;
+    private TableColumn<Part, Integer> addProductAssocPartsInvCol;
 
     @FXML
-    private TableColumn<?, ?> addProductAssocPartsNameCol;
+    private TableColumn<Part, String> addProductAssocPartsNameCol;
 
     @FXML
-    private TableColumn<?, ?> addProductAssocPartsPriceCol;
+    private TableColumn<Part, Double> addProductAssocPartsPriceCol;
 
     @FXML
-    private TableView<?> addProductAssocPartsTableView;
+    private TableView<Part> addProductAssocPartsTableView;
 
     @FXML
     private TextField addProductIdTxt;
@@ -96,5 +98,7 @@ public class AddProductController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        addProductAllPartsTableView.setItems(Inventory.getAllParts());
+        addProductAssocPartsTableView.setItems(Inventory.getAllParts());
     }
 }

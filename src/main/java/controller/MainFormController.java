@@ -8,6 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,40 +21,40 @@ public class MainFormController implements Initializable {
     Stage stage;
     Parent scene;
     @FXML
-    private TableColumn<?, ?> mainPartsIdCol;
+    private TableColumn<Part, Integer> mainPartsIdCol;
 
     @FXML
-    private TableColumn<?, ?> mainPartsInvCol;
+    private TableColumn<Part, Integer> mainPartsInvCol;
 
     @FXML
-    private TableColumn<?, ?> mainPartsNameCol;
+    private TableColumn<Part, String> mainPartsNameCol;
 
     @FXML
-    private TableColumn<?, ?> mainPartsPriceCol;
+    private TableColumn<Part, Double> mainPartsPriceCol;
 
     @FXML
     private TextField mainPartsSearchTxt;
 
     @FXML
-    private TableView<?> mainPartsTableView;
+    private TableView<Part> mainPartsTableView;
 
     @FXML
-    private TableColumn<?, ?> mainProductsIdCol;
+    private TableColumn<Product, Integer> mainProductsIdCol;
 
     @FXML
-    private TableColumn<?, ?> mainProductsInvCol;
+    private TableColumn<Product, Integer> mainProductsInvCol;
 
     @FXML
-    private TableColumn<?, ?> mainProductsNameCol;
+    private TableColumn<Product, String> mainProductsNameCol;
 
     @FXML
-    private TableColumn<?, ?> mainProductsPriceCol;
+    private TableColumn<Product, Double> mainProductsPriceCol;
 
     @FXML
     private TextField mainProductsSearchTxt;
 
     @FXML
-    private TableView<?> mainProductsTableView;
+    private TableView<Product> mainProductsTableView;
 
     @FXML
     void onActionAddPart(ActionEvent event) throws IOException {
@@ -103,5 +106,7 @@ public class MainFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        mainPartsTableView.setItems(Inventory.getAllParts());
+        mainProductsTableView.setItems(Inventory.getAllProducts());
     }
 }
