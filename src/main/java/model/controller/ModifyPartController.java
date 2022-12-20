@@ -1,4 +1,4 @@
-package controller;
+package model.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ModifyPartController implements Initializable{
+public class ModifyPartController implements Initializable {
 
     Stage stage;
     Parent scene;
@@ -29,6 +29,9 @@ public class ModifyPartController implements Initializable{
 
     @FXML
     private TextField modPartInvTxt;
+
+    @FXML
+    private Label modPartMachineIdLbl;
 
     @FXML
     private TextField modPartMachineIdTxt;
@@ -50,7 +53,7 @@ public class ModifyPartController implements Initializable{
 
     @FXML
     void onActionCancelModifyPart(ActionEvent event) throws IOException {
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
@@ -65,5 +68,13 @@ public class ModifyPartController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void onInHouse(ActionEvent actionEvent) {
+        modPartMachineIdLbl.setText("Machine ID");
+    }
+
+    public void onOutsourced(ActionEvent actionEvent) {
+        modPartMachineIdLbl.setText("Company name");
     }
 }

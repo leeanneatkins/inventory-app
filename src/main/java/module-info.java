@@ -5,6 +5,8 @@ module project.inventoryapp {
 
     opens project.inventoryapp to javafx.fxml;
     exports project.inventoryapp;
-    exports controller;
-    opens controller to javafx.fxml;
+    exports model;
+    opens model to javafx.fxml;
+    exports model.controller;
+    opens model.controller to javafx.fxml;
 }

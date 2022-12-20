@@ -1,5 +1,8 @@
-package controller;
+package model.controller;
 
+import model.Inventory;
+import model.Part;
+import model.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Inventory;
-import model.Part;
-import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -107,6 +108,18 @@ public class MainFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         mainPartsTableView.setItems(Inventory.getAllParts());
+
+        mainPartsIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        mainPartsNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        mainPartsInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        mainPartsPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
         mainProductsTableView.setItems(Inventory.getAllProducts());
+
+        mainProductsIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        mainProductsNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        mainProductsInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        mainProductsPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
     }
 }

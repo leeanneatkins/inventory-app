@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.AddPartController">
    <children>
       <VBox prefHeight="500.0" prefWidth="600.0">
          <children>
@@ -25,12 +25,12 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="addPartInHouseRadBtn" mnemonicParsing="false" text="In-House">
+                  <RadioButton fx:id="addPartInHouseRadBtn" mnemonicParsing="false" onAction="#onInHouse" text="In-House">
                      <toggleGroup>
                         <ToggleGroup fx:id="AddPartTG" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="addPartOutsourcedRadBtn" mnemonicParsing="false" text="Outsourced" toggleGroup="$AddPartTG" />
+                  <RadioButton fx:id="addPartOutsourcedRadBtn" mnemonicParsing="false" onAction="#onOutsourced" text="Outsourced" toggleGroup="$AddPartTG" />
                </children>
                <padding>
                   <Insets top="60.0" />
@@ -56,9 +56,9 @@
                   <Label text="ID" />
                   <Label text="Name" GridPane.rowIndex="2" />
                   <Label text="Inv" GridPane.rowIndex="3" />
-                  <Label fx:id="priceTxt" text="Price/Cost" GridPane.rowIndex="4" />
+                  <Label text="Price/Cost" GridPane.rowIndex="4" />
                   <Label text="Max" GridPane.rowIndex="5" />
-                  <Label text="Machine ID" GridPane.rowIndex="6" />
+                  <Label fx:id="addPartMachineIdLbl" text="Machine ID" GridPane.rowIndex="6" />
                   <TextField fx:id="addPartIdTxt" GridPane.columnIndex="1" />
                   <TextField fx:id="addPartNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="addPartInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />

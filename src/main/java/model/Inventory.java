@@ -37,20 +37,20 @@ public class Inventory{
     //+ updatePart(index:int, selectedPart:Part):void
     public static void updatePart(Part selectedPart, int index)
     {
-        //write method here
+        //FIXME write method here
     }
 
     //+ updateProduct(index:int, newProduct:Product):void
     public static void updateProduct(Product selectedProduct, int index)
     {
-        //write method here
+        //FIXME write method here
     }
 
 
     //+ deletePart(selectedPart:Part):boolean
     public static boolean deletePart(Part selectedPart)
     {
-        //write method here
+        //FIXME write method here
         return false;
     }
 
@@ -58,30 +58,30 @@ public class Inventory{
     //+ deleteProduct(selectedProduct:Product):boolean
     public static boolean deleteProduct(Product selectedProduct)
     {
-        //write method here
+        //FIXME write method here
         return false;
     }
 
-    //+ lookupPart(partId:int):Part ERROR
-    //public static Part lookupPart(int partID)
+    //FIXME + lookupPart(partId:int):Part ERROR
+    //public static Part lookupPart(int partId)
     //{
-    //return Part;
+    //return Part();
     //}
 
-    //+ lookupProduct(productId:int):Product ERROR
-    //public static Product lookupProduct(int productID)
+    //FIXME + lookupProduct(productId:int):Product ERROR
+    //public static Product lookupProduct(int productId)
     //{
-    // return Product;
-    // }
+    //return Product;
+    //}
 
 
-    //+ lookupPart(partName:String):ObservableList<Part> ERROR
+    //FIXME + lookupPart(partName:String):ObservableList<Part> ERROR
     //public static ObservableList<Part> lookupPart(String partName)
     //{
     //return Part;
     //}
 
-    //+ lookupProduct(productName:String):ObservableList<Product> ERROR
+    //FIXME + lookupProduct(productName:String):ObservableList<Product> ERROR
     //public static ObservableList<Product> lookupProduct(String productName)
     // {
     //return Product;
