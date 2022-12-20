@@ -8,16 +8,26 @@ import model.InHouse;
 import model.Inventory;
 import model.Outsourced;
 
-public class HelloApplication extends Application {
+
+/**
+ * This class creates an app that allows users to search, add, modify, and delete items in an inventory.
+ * <p> Add a detailed description of a logical or runtime error that you corrected in the code and a detailed description of how you corrected it above the line of code you are referring to. (place it in the header where the error occurred). </p>
+ * <p> Add a compatible feature to extend functionality HERE. </p>
+ * @author    LeeAnne Atkins
+ */
+
+public class Main extends Application {
+
+    /** This method sets the stage and displays the scene MainForm.fxml upon start. */
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/view/MainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/MainForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 388);
         stage.setTitle("Inventory Management System");
         stage.setScene(scene);
         stage.show();
     }
-
+    /** This is the main method. This is the first method that is called when the program is run. */
     public static void main(String[] args) {
 
         InHouse inhouse1 = new InHouse (1, "drop leaf table top", 399.99, 2, 1, 6, 122);
@@ -38,9 +48,6 @@ public class HelloApplication extends Application {
         Inventory.addPart(outsourced2);
         Inventory.addPart(outsourced3);
         Inventory.addPart(outsourced4);
-
-
-
 
 
         launch();

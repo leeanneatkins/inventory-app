@@ -14,6 +14,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This class serves as a controller for the ModifyProduct view. (ModifyProduct.fxml)
+ * @author    LeeAnne Atkins
+ */
+
 public class ModifyProductController implements Initializable{
 
     Stage stage;
@@ -93,6 +98,7 @@ public class ModifyProductController implements Initializable{
 
     }
 
+    /** This method initializes the scene ModifyProduct.fxml. */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

@@ -17,6 +17,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This class serves as a controller for the MainForm view. (MainForm.fxml)
+ * @author    LeeAnne Atkins
+ */
+
 public class MainFormController implements Initializable {
 
     Stage stage;
@@ -103,7 +108,7 @@ public class MainFormController implements Initializable {
         stage.setScene(new Scene(scene));
         stage.show();
     }
-
+    /** This method initializes the scene MainForm.fxml. */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

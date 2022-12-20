@@ -1,13 +1,14 @@
 package model;
 
 /**
- * Supplied class Part.java
+ * This class is a superclass for the InHouse class and the Outsourced class.
+ * @author    LeeAnne Atkins
  */
 
-/**
- *
- * @author LeeAnne Atkins
- */
+
+///**
+ //* @author LeeAnne Atkins
+ //*/
 public abstract class Part {
     private int id;
     private String name;

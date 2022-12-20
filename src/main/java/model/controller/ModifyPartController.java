@@ -13,6 +13,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This class serves as a controller for the ModifyPart view. (ModifyPart.fxml)
+ * @author    LeeAnne Atkins
+ */
+
 public class ModifyPartController implements Initializable {
 
     Stage stage;
@@ -64,7 +69,7 @@ public class ModifyPartController implements Initializable {
 
     }
 
-
+    /** This method initializes the scene ModifyPartController.fxml.*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
