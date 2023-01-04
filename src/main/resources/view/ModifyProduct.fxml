@@ -36,7 +36,7 @@
             <Label text="Inv" GridPane.rowIndex="2" />
             <Label text="Price/Cost" GridPane.rowIndex="3" />
             <Label text="Max" GridPane.rowIndex="4" />
-            <TextField fx:id="modProductIdTxt" GridPane.columnIndex="1" />
+            <TextField fx:id="modProductIdTxt" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="modProductNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="modProductInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>

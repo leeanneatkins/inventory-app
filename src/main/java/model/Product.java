@@ -11,18 +11,16 @@ import javafx.collections.ObservableList;
 public class Product {
 
     private static ObservableList<Part> associatedParts = FXCollections.observableArrayList();
-
     public int id;
-
+    private static int productIdCounter = 1000;
     public String name;
-
     public double price;
     public int stock;
     public int  min;
     public int max;
 
     public Product(int id, String name, double price, int stock, int min, int max) {
-        this.id = id;
+        this.id = productIdCounter++;
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -118,8 +116,7 @@ public class Product {
     /**
      * @return the associatedParts
      */
-    public static ObservableList<Part> getAllAssociatedParts()
-    {
+    public static ObservableList<Part> getAllAssociatedParts() {
         return associatedParts;
     }
 

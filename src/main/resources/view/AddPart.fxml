@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.AddPartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.AddPartController">
    <children>
       <VBox prefHeight="500.0" prefWidth="600.0">
          <children>
@@ -59,7 +59,7 @@
                   <Label text="Price/Cost" GridPane.rowIndex="4" />
                   <Label text="Max" GridPane.rowIndex="5" />
                   <Label fx:id="addPartMachineIdLbl" text="Machine ID" GridPane.rowIndex="6" />
-                  <TextField fx:id="addPartIdTxt" GridPane.columnIndex="1" />
+                  <TextField fx:id="addPartIdTxt" editable="false" promptText="Auto Gen - Disabled" GridPane.columnIndex="1" />
                   <TextField fx:id="addPartNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="addPartInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="addPartPriceTxt" GridPane.columnIndex="1" GridPane.rowIndex="4" />

@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
  * @author    LeeAnne Atkins
  */
 
-public class ModifyProductController implements Initializable{
+public class ModifyProductController implements Initializable {
 
     Stage stage;
     Parent scene;
@@ -75,11 +75,13 @@ public class ModifyProductController implements Initializable{
     @FXML
     private TextField modProductSearchTxt;
 
+    /** This method adds the user selected Part/s to the Product when the Add button is clicked. */
     @FXML
     void onActionAddPartToProduct(ActionEvent event) {
 
     }
 
+    /** This method returns the scene to MainForm.fxml when the Cancel button is clicked. */
     @FXML
     void onActionCancelModifyProduct(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -88,11 +90,13 @@ public class ModifyProductController implements Initializable{
         stage.show();
     }
 
+    /** This method removes the user selected Part/s from the Product when the Remove Associated Part button is clicked */
     @FXML
     void onActionRemoveAssocPart(ActionEvent event) {
 
     }
 
+    /** This method saves the user modified Product when the Save button is clicked. */
     @FXML
     void onActionSaveModifyProduct(ActionEvent event) {
 
@@ -101,7 +105,6 @@ public class ModifyProductController implements Initializable{
     /** This method initializes the scene ModifyProduct.fxml. */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
     }
 }

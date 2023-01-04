@@ -36,7 +36,6 @@
             <Label text="Inv" GridPane.rowIndex="2" />
             <Label text="Price/Cost" GridPane.rowIndex="3" />
             <Label text="Max" GridPane.rowIndex="4" />
-            <TextField fx:id="addProductIdTxt" GridPane.columnIndex="1" />
             <TextField fx:id="addProductNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="addProductInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
@@ -58,6 +57,7 @@
                   <Insets right="50.0" />
                </GridPane.margin>
             </TextField>
+            <TextField fx:id="addProductIdTxt" editable="false" promptText="Auto Gen - Disabled" GridPane.columnIndex="1" />
             <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="58.0" text="Min  " GridPane.columnIndex="2" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets />
