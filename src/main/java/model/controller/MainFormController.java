@@ -67,6 +67,36 @@ public class MainFormController implements Initializable {
     @FXML
     private TableView<Product> mainProductsTableView;
 
+    public void onActionSearchPart(ActionEvent actionEvent) {
+        try {
+            int partId = Integer.parseInt(mainPartsSearchTxt.getText());
+            Part part = Inventory.lookupPart(partId);
+            mainPartsTableView.getSelectionModel().select(part);
+            mainPartsTableView.scrollTo(part);
+
+        } catch(NumberFormatException e){
+            String p = mainPartsSearchTxt.getText().toLowerCase();
+            ObservableList<Part> parts = Inventory.lookupPart(p);
+            mainPartsTableView.setItems(parts);
+        }
+    }
+
+    public void onActionSearchProduct(ActionEvent actionEvent) {
+        try {
+            int productId = Integer.parseInt(mainProductsSearchTxt.getText());
+            Product product = Inventory.lookupProduct(productId);
+            mainProductsTableView.getSelectionModel().select(product);
+            mainProductsTableView.scrollTo(product);
+
+        } catch(NumberFormatException e){
+            //String productName = mainProductsSearchTxt.getText();
+            String p = mainProductsSearchTxt.getText();
+            ObservableList<Product> products = Inventory.lookupProduct(p);
+            mainProductsTableView.setItems(products);
+            mainProductsSearchTxt.setText("");
+        }
+    }
+
     /**
      * This method changes the scene to AddPart.fxml when the Add button under mainPartsTableView is clicked.
      */
@@ -78,35 +108,6 @@ public class MainFormController implements Initializable {
         stage.setScene(new Scene(scene));
         stage.show();
     }
-//Kinkaid video
-   /* public void getResultsHandler(ActionEvent actionEvent) {
-        String p = mainPartsSearchTxt.getText();
-
-        ObservableList<Part> parts = lookupPart(p);
-
-        mainPartsTableView.setItems(parts);
-
-        mainPartsSearchTxt.setText("");
-    }
-*/
-//Kinkaid video
-    /*
-    public static ObservableList<Part> lookupPart(String partName){
-        ObservableList<Part> namedParts = FXCollections.observableArrayList();
-
-        ObservableList<Part> allParts = Inventory.getAllParts();
-
-        for(Part p : allParts){
-            if(p.getName().contains(partName)){
-                namedParts.add(p);
-            }
-        }
-
-        return namedParts;
-
-    }
-*/
-
 
     /**
      * This method changes the scene to AddProduct.fxml when the Add button under mainProductsTableView is clicked.
@@ -120,12 +121,68 @@ public class MainFormController implements Initializable {
     }
 
     /**
+     * This method changes the scene to ModifyPart.fxml when the Modify button under mainPartsTableView is clicked.
+     */
+    @FXML
+    void onActionModifyPart(ActionEvent event) throws IOException {
+        Part selectedItem = mainPartsTableView.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/ModifyPart.fxml"));
+            loader.load();
+
+            ModifyPartController MPController = loader.getController();
+            MPController.sendPart(mainPartsTableView.getSelectionModel().getSelectedItem());
+
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+            stage.setScene(new Scene(scene));
+            stage.show();
+        }
+        else {
+            //FIXME write else statement here
+            System.out.println("Please select a part to modify.");
+        }
+    }
+
+    /**
+     * This method changes the scene to ModifyProduct.fxml when the Modify button under mainProductsTableView is clicked.
+     */
+    @FXML
+    void onActionModifyProduct(ActionEvent event) throws IOException {
+        Product selectedItem = mainProductsTableView.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/ModifyProduct.fxml"));
+            loader.load();
+
+            ModifyProductController MProdController = loader.getController();
+            MProdController.sendProduct(mainProductsTableView.getSelectionModel().getSelectedItem());
+
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+            stage.setScene(new Scene(scene));
+            stage.show();
+        }
+        else {
+            //FIXME write else statement here
+            System.out.println("Please select a product to modify.");
+        }
+    }
+
+    /**
      * This method removes the selected Part from the mainPartsTableView when the Delete button is clicked.
      */
     @FXML
     void onActionDeletePart(ActionEvent event) {
         Part selectedItem = mainPartsTableView.getSelectionModel().getSelectedItem();
-        mainPartsTableView.getItems().remove(selectedItem);
+        if (selectedItem != null) {
+            Inventory.deletePart(selectedItem);
+        }
+        else {
+            //FIXME write else statement here
+            System.out.println("Please select a part to delete.");
+        }
     }
 
     /**
@@ -133,7 +190,7 @@ public class MainFormController implements Initializable {
      */
     @FXML
     void onActionDeleteProduct(ActionEvent event) {
-
+        //FIXME write this method
         System.out.println("Delete product button clicked");
     }
 
@@ -143,35 +200,6 @@ public class MainFormController implements Initializable {
     @FXML
     void onActionExitProgram(ActionEvent event) {
         System.exit(0);
-    }
-
-    /**
-     * This method changes the scene to ModifyPart.fxml when the Modify button under mainPartsTableView is clicked.
-     */
-    @FXML
-    void onActionModifyPart(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/ModifyPart.fxml"));
-        loader.load();
-
-        ModifyPartController MPController = loader.getController();
-        MPController.sendPart(mainPartsTableView.getSelectionModel().getSelectedItem());
-
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        Parent scene = loader.getRoot();
-        stage.setScene(new Scene(scene));
-        stage.show();
-    }
-
-    /**
-     * This method changes the scene to ModifyProduct.fxml when the Modify button under mainProductsTableView is clicked.
-     */
-    @FXML
-    void onActionModifyProduct(ActionEvent event) throws IOException {
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/view/ModifyProduct.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
     }
 
     /**
@@ -191,54 +219,4 @@ public class MainFormController implements Initializable {
         mainProductsInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         mainProductsPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
-
-    public void onActionSearchPart(ActionEvent actionEvent) {
-        try {
-            int partId = Integer.parseInt(mainPartsSearchTxt.getText());
-            Part part = Inventory.lookupPart(partId);
-            mainPartsTableView.getSelectionModel().select(part);
-            mainPartsTableView.scrollTo(part);
-
-        } catch(NumberFormatException e){
-            String partName = mainPartsSearchTxt.getText();
-        }
-    }
-
-    public void onActionSearchProduct(ActionEvent actionEvent) {
-        try {
-            int productId = Integer.parseInt(mainProductsSearchTxt.getText());
-            Product product = Inventory.lookupProduct(productId);
-            mainProductsTableView.getSelectionModel().select(product);
-            mainProductsTableView.scrollTo(product);
-
-        } catch(NumberFormatException e){
-            String productName = mainProductsSearchTxt.getText();
-        }
-    }
 }
-
-
-       /* FilteredList<Part> filteredData = new FilteredList<>(Inventory.allParts, p -> true);
-
-        mainPartsSearchTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(part -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (part.getName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false;
-            });
-        });
-        SortedList<Part> sortedData = new SortedList<>(filteredData);
-
-        sortedData.comparatorProperty().bind(mainPartsTableView.comparatorProperty());
-
-        mainPartsTableView.setItems(sortedData);
-    }
-}
-*/

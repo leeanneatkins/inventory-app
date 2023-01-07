@@ -24,8 +24,11 @@ import java.util.ResourceBundle;
 
 public class AddPartController implements Initializable{
 
+    private InHouse inHouse = new InHouse(0, null, 0, 0, 0, 0, 0);
+    private Outsourced outsourced = new Outsourced(0, null, 0, 0, 0, 0, null);
     Stage stage;
     Parent scene;
+
 
     public static int partIdCounter = 110;
 
@@ -62,18 +65,35 @@ public class AddPartController implements Initializable{
     @FXML
     private TextField addPartPriceTxt;
 
-
-    /** This method calls the method backToMainForm() when the cancel button is clicked. */
-    @FXML
-    void onActionCancelAddPart(ActionEvent event) throws IOException {
-        backToMainForm(event);
-    }
-
     /** This method saves the user entered data for the Part when the save button is clicked and calls the method backToMainForm(). */
     @FXML
     void onActionSavePart(ActionEvent event) throws IOException {
+        if(addPartInHouseRadBtn.isSelected()) {
+            //inHouse = true;
+            inHouse.setId(++partIdCounter);
+            inHouse.setName(addPartNameTxt.getText());
+            inHouse.setPrice(Double.parseDouble(addPartPriceTxt.getText()));
+            inHouse.setStock(Integer.parseInt(addPartInvTxt.getText()));
+            inHouse.setMin(Integer.parseInt(addPartMinTxt.getText()));
+            inHouse.setMax(Integer.parseInt(addPartMaxTxt.getText()));
+            inHouse.setMachineId(Integer.parseInt(addPartMachineIdTxt.getText()));
+            Inventory.addPart(inHouse);
+        }
+        else if(addPartOutsourcedRadBtn.isSelected()) {
+            outsourced.setId(++partIdCounter);
+            outsourced.setName(addPartNameTxt.getText());
+            outsourced.setPrice(Double.parseDouble(addPartPriceTxt.getText()));
+            outsourced.setStock(Integer.parseInt(addPartInvTxt.getText()));
+            outsourced.setMin(Integer.parseInt(addPartMinTxt.getText()));
+            outsourced.setMax(Integer.parseInt(addPartMaxTxt.getText()));
+            outsourced.setCompanyName(addPartMachineIdTxt.getText());
+            Inventory.addPart(outsourced);
+        }
+        backToMainForm(event);
+    }
         //boolean inHouse;
         //boolean outSourced;
+        /*
         int id = ++partIdCounter;
         //int id = Integer.parseInt(addPartIdTxt.getText());
         String name = addPartNameTxt.getText();
@@ -94,6 +114,22 @@ public class AddPartController implements Initializable{
             }
         backToMainForm(event);
     }
+    */
+
+
+    /** This method calls the method backToMainForm() when the cancel button is clicked. */
+    @FXML
+    void onActionCancelAddPart(ActionEvent event) throws IOException {
+        backToMainForm(event);
+    }
+
+    /** This method returns the scene to MainForm.fxml. */
+    public void backToMainForm(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
 
     /** This method sets the text of addPartMachineIdLbl to "Machine ID" when the InHouse radial button is selected. */
     public void onInHouse(ActionEvent actionEvent) {
@@ -103,14 +139,6 @@ public class AddPartController implements Initializable{
     /** This method sets the text of addPartMachineIdLbl to "Company name" when the Outsourced radial button is selected. */
     public void onOutsourced(ActionEvent actionEvent) {
         addPartMachineIdLbl.setText("Company name");
-    }
-
-    /** This method returns the scene to MainForm.fxml. */
-    public void backToMainForm(ActionEvent event) throws IOException {
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
     }
 
     /** This method initializes the scene AddPart.fxml. */

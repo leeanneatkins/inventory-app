@@ -1,13 +1,13 @@
 package project.inventoryapp;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.InHouse;
-import model.Inventory;
-import model.Outsourced;
-import model.Product;
+import model.*;
+import model.controller.AddProductController;
 
 
 /**
@@ -44,10 +44,10 @@ public class MainApplication extends Application {
         Outsourced outsourced3 = new Outsourced(109, "white spindle leg", 0.99, 2, 1, 6, "Legs 'R Us");
         Outsourced outsourced4 = new Outsourced(110, "leg bracket (4)", 9.99, 2, 1, 6, "Modern Inc");
 
-        Product product1 = new Product(1001, "mid-century modern table set", 1999.99, 2, 1, 4);
-        Product product2 = new Product(1002, "white farmhouse table set", 2999.99, 2, 1, 4);
-        Product product3 = new Product(1003, "faux concrete table set", 3999.99, 2, 1, 4);
-        Product product4 = new Product(1004, "faux marble table set", 4999.99, 2, 1, 4);
+       Product product1 = new Product(1001, "mid-century modern table set", 1999.99, 2, 1, 4);
+       // Product product2 = new Product(1002, "white farmhouse table set", 2999.99, 2, 1, 4);
+       // Product product3 = new Product(1003, "faux concrete table set", 3999.99, 2, 1, 4);
+        //Product product4 = new Product(1004, "faux marble table set", 4999.99, 2, 1, 4);
 
         Inventory.addPart(inhouse1);
         Inventory.addPart(inhouse2);
@@ -59,10 +59,12 @@ public class MainApplication extends Application {
         Inventory.addPart(outsourced2);
         Inventory.addPart(outsourced3);
         Inventory.addPart(outsourced4);
-        Inventory.addProduct(product1);
-        Inventory.addProduct(product2);
-        Inventory.addProduct(product3);
-        Inventory.addProduct(product4);
+       Inventory.addProduct(product1);
+       product1.addAssociatedPart(inhouse1);
+        //Inventory.addProduct(product2);
+        //Inventory.addProduct(product3);
+        //Inventory.addProduct(product4);
+
 
         launch();
     }

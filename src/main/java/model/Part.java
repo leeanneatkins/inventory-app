@@ -8,19 +8,60 @@ import model.controller.ModifyPartController;
  */
 public abstract class Part {
     private int id;
-    //private static int partIdCounter = 100;
     private String name;
     private double price;
     private int stock;
     private int min;
     private int max;
+
     public Part(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
-        //this.id = partIdCounter++;
         this.name = name;
         this.price = price;
         this.stock = stock;
         this.min = min;
+        this.max = max;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
+     * @param stock the stock to set
+     */
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    /**
+     * @param min the min to set
+     */
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    /**
+     * @param max the max to set
+     */
+    public void setMax(int max) {
         this.max = max;
     }
 
@@ -32,24 +73,10 @@ public abstract class Part {
     }
 
     /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
      * @return the name
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
     }
 
     /**
@@ -60,24 +87,10 @@ public abstract class Part {
     }
 
     /**
-     * @param price the price to set
-     */
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    /**
      * @return the stock
      */
     public int getStock() {
         return stock;
-    }
-
-    /**
-     * @param stock the stock to set
-     */
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 
     /**
@@ -88,24 +101,9 @@ public abstract class Part {
     }
 
     /**
-     * @param min the min to set
-     */
-    public void setMin(int min) {
-        this.min = min;
-    }
-
-    /**
      * @return the max
      */
     public int getMax() {
         return max;
     }
-
-    /**
-     * @param max the max to set
-     */
-    public void setMax(int max) {
-        this.max = max;
-    }
-
 }
