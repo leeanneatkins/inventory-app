@@ -2,47 +2,88 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import model.controller.MainFormController;
+//import javafx.event.ActionEvent;
+//import javafx.scene.control.Alert;
+//import model.controller.MainFormController;
 
 /**
- * This class depends on the Part class and Product class.
- * @author    LeeAnne Atkins
+ * Represents an inventory of parts and products.
+ *
+ * @author LeeAnne Atkins
  */
-
 public class Inventory {
 
-    /** This method FILL IN HERE! */
+    /**
+     * The part id counter is the next id for a new part. It is incremented each time a new part is added.
+     */
+    public static int partId = 113;
+    /**
+     * The product id counter is the next id for a new product. It is incremented each time a new product is added.
+     */
+    public static int productId = 1005;
+    /**
+     * Indicates if a part is found after a search.
+     */
+    public static boolean partFound;
+    /**
+     * Indicates if a product is found after a search.
+     */
+    public static boolean productFound;
+    /**
+     * An observable list of all parts.
+     */
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
-
-    /** This method FILL IN HERE! */
+    /**
+     * An observable list of all products.
+     */
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
-    /** This method adds a new Part to the ObservableList allParts. */
+    /**
+     * Adds a new part to <code>allParts</code> observable list.
+     *
+     * @param newPart the new part
+     */
     public static void addPart(Part newPart) {
-            allParts.add(newPart);
-        }
+        allParts.add(newPart);
+    }
 
-    /** This method adds a new Product to the ObservableList allProducts. */
+    /**
+     * Adds a new product to <code>allProducts</code> observable list.
+     *
+     * @param newProduct the new product
+     */
     public static void addProduct(Product newProduct) {
-             allProducts.add(newProduct);
-         }
+        allProducts.add(newProduct);
+    }
 
-    /**This method looks up a Part by partId. */
+    /**
+     * Looks up a part by part id in <code>allParts</code> observable list.
+     *
+     * @param partId the part id
+     * @return the matching part
+     */
     public static Part lookupPart (int partId) {
+        //partFound = false;
         for (Part part : Inventory.getAllParts()) {
-            if(part.getId() == partId) {
+            if (part.getId() == partId) {
+                //partFound = true;
                 return part;
             }
         }
         return null;
     }
 
-    /** This method looks up a Product by productId. */
-    public static Product lookupProduct (int productId)
-    {
+    /**
+     * Looks up a product by product id in <code>allProducts</code> observable list.
+     *
+     * @param productId the product id
+     * @return the matching product
+     */
+    public static Product lookupProduct (int productId) {
+        productFound = false;
         for (Product product : Inventory.getAllProducts()) {
-            if(product.getId() == productId) {
+            if (product.getId() == productId) {
+                productFound = true;
                 return product;
             }
         }
@@ -50,63 +91,94 @@ public class Inventory {
     }
 
     /**
-     * This method looks up a Part by partName.
+     * Looks up a part by part name in <code>allParts</code> observable list.
+     *
+     * @param partName the part name
+     * @return the observable list of matching part(s)
      */
     public static ObservableList<Part> lookupPart (String partName) {
-
         ObservableList<Part> namedParts = FXCollections.observableArrayList();
-
-        ObservableList<Part> allParts = Inventory.getAllParts();
-
+        //partFound = false;
         for (Part p : allParts) {
-            if (p.getName().contains(partName)) {
+            if (p.getName().toLowerCase().contains(partName)) {
                 namedParts.add(p);
             }
         }
-        return namedParts;
-    }
+        //if (!namedParts.isEmpty()) {
+            //partFound = true;
+            return namedParts;
+        }
+        //return allParts;
+    //}
 
-    /** This method looks up a Product by productName. */
+    /**
+     * Looks up a product by product name in <code>allProducts</code> observable list.
+     *
+     * @param productName the product name
+     * @return the observable list of matching products(s)
+     */
     public static ObservableList<Product> lookupProduct (String productName) {
-    ObservableList<Product> namedProducts = FXCollections.observableArrayList();
-
-    ObservableList<Product> allProducts = Inventory.getAllProducts();
-
+        ObservableList<Product> namedProducts = FXCollections.observableArrayList();
+        //productFound = false;
         for (Product p : allProducts) {
-        if (p.getName().contains(productName)) {
-            namedProducts.add(p);
+            if (p.getName().toLowerCase().contains(productName)) {
+                namedProducts.add(p);
             }
         }
-        return namedProducts;
+        //if (!namedProducts.isEmpty()) {
+            //productFound = true;
+            return namedProducts;
+        }
+        //return allProducts;
+    //}
+
+    /**
+     * Updates the selected part in <code>allParts</code> observable list.
+     *
+     * @param index the part index
+     * @param selectedPart the selected part
+     */
+    public static void updatePart(int index, Part selectedPart) {
+        //boolean partUpdated = true;
+        allParts.set(index, selectedPart);
     }
 
-
-    /** This method updates the selectedPart. */
-    public static void updatePart(int index, Part selectedPart) {
-            boolean partUpdated = true;
-            allParts.set(index, selectedPart);
-        }
-
-
-    /** This method updates the selectedProduct. */
+    /**
+     * Updates the selected product in <code>allProducts</code> observable list.
+     *
+     * @param index the product index
+     * @param selectedProduct the selected product
+     */
     public static void updateProduct(int index, Product selectedProduct) {
-        boolean productUpdated = true;
+        //boolean productUpdated = true;
         allProducts.set(index, selectedProduct);
     }
 
-    /** This method deletes the selectedPart. */
+    /**
+     * Deletes the selected part from <code>allParts</code> observable list.
+     *
+     * @param selectedPart the selected part
+     * @return the boolean
+     */
     public static boolean deletePart(Part selectedPart) {
         allParts.remove(selectedPart);
-       return false;
-    }
-
-    /** This method deletes the selectedProduct. */
-    public static boolean deleteProduct(Product selectedProduct) {
-        //FIXME write method here
         return false;
     }
 
     /**
+     * Deletes the selected product from <code>allProducts</code> observable list.
+     *
+     * @param selectedProduct the selected product
+     * @return the boolean
+     */
+    public static boolean deleteProduct(Product selectedProduct) {
+        allProducts.remove(selectedProduct);
+        return false;
+    }
+
+    /**
+     * Gets all parts.
+     *
      * @return the allParts
      */
     public static ObservableList<Part> getAllParts() {
@@ -114,11 +186,12 @@ public class Inventory {
     }
 
     /**
+     * Gets all products.
+     *
      * @return the allProducts
      */
     public static ObservableList<Product> getAllProducts() {
         return allProducts;
     }
-
 }
 

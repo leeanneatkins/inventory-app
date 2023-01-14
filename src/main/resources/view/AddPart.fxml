@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: EEF4F3; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.AddPartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: E5F3FA; -fx-border-color: grey; -fx-border-radius: 10; -fx-border-insets: 30;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.AddPartController">
    <children>
       <VBox prefHeight="500.0" prefWidth="600.0">
          <children>
@@ -25,7 +25,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="addPartInHouseRadBtn" mnemonicParsing="false" onAction="#onInHouse" text="In-House">
+                  <RadioButton fx:id="addPartInHouseRadBtn" mnemonicParsing="false" onAction="#onInHouse" selected="true" text="In-House">
                      <toggleGroup>
                         <ToggleGroup fx:id="AddPartTG" />
                      </toggleGroup>
@@ -38,9 +38,9 @@
             </HBox>
             <GridPane prefHeight="267.0" prefWidth="480.0" vgap="5.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.33331298828125" minWidth="10.0" prefWidth="70.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.33333333333337" minWidth="10.0" prefWidth="206.33333333333337" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.3333740234375" minWidth="10.0" prefWidth="55.666707356770814" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.33331298828125" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.33333333333337" minWidth="10.0" prefWidth="211.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.3333740234375" minWidth="10.0" prefWidth="40.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.3333740234375" minWidth="10.0" prefWidth="146.99995930989581" />
               </columnConstraints>
               <rowConstraints>
@@ -55,7 +55,7 @@
                <children>
                   <Label text="ID" />
                   <Label text="Name" GridPane.rowIndex="2" />
-                  <Label text="Inv" GridPane.rowIndex="3" />
+                  <Label text="Inventory" GridPane.rowIndex="3" />
                   <Label text="Price/Cost" GridPane.rowIndex="4" />
                   <Label text="Max" GridPane.rowIndex="5" />
                   <Label fx:id="addPartMachineIdLbl" text="Machine ID" GridPane.rowIndex="6" />
@@ -80,7 +80,7 @@
                      <GridPane.margin>
                         <Insets right="60.0" />
                      </GridPane.margin></TextField>
-                  <TextField fx:id="addPartIdTxt" editable="false" promptText="Auto Gen - Disabled" GridPane.columnIndex="1">
+                  <TextField fx:id="addPartIdTxt" disable="true" editable="false" promptText="Auto Gen - Disabled" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets right="60.0" />
                      </GridPane.margin></TextField>

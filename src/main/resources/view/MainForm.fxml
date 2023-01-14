@@ -6,13 +6,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="388.0" prefWidth="1200.0" style="-fx-background-color: EEF4F3;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.MainFormController">
+<AnchorPane prefHeight="440.0" prefWidth="1200.0" style="-fx-background-color: E5F3FA;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.controller.MainFormController">
    <children>
-      <HBox alignment="CENTER" layoutX="1.0" layoutY="73.0" prefHeight="235.0" prefWidth="1200.0" spacing="40.0">
+      <HBox alignment="CENTER" layoutX="1.0" layoutY="121.0" prefHeight="235.0" prefWidth="1200.0" spacing="40.0">
          <children>
             <AnchorPane prefHeight="255.0" prefWidth="550.0" style="-fx-border-color: grey; -fx-border-radius: 10;">
                <children>
@@ -56,7 +58,7 @@
                   <TableView fx:id="mainProductsTableView" layoutX="15.0" layoutY="51.0" prefHeight="153.0" prefWidth="520.0">
                      <columns>
                         <TableColumn fx:id="mainProductsIdCol" prefWidth="55.0" text="Part ID" />
-                        <TableColumn fx:id="mainProductsNameCol" minWidth="5.3333740234375" prefWidth="203.3333511352539" text="Part Name" />
+                        <TableColumn fx:id="mainProductsNameCol" minWidth="5.3333740234375" prefWidth="203.3333511352539" text="Product Name" />
                         <TableColumn fx:id="mainProductsInvCol" prefWidth="130.0" text="Inventory Level" />
                         <TableColumn fx:id="mainProductsPriceCol" prefWidth="130.0" text="Price / Cost per Unit" />
                      </columns>
@@ -75,11 +77,16 @@
             </AnchorPane>
          </children>
       </HBox>
-      <Label layoutX="43.0" layoutY="24.0" text="Inventory Management System">
+      <Label layoutX="140.0" layoutY="50.0" text="Inventory Management System">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="1088.0" layoutY="341.0" mnemonicParsing="false" onAction="#onActionExitProgram" prefWidth="80.0" text="Exit" />
+      <Button layoutX="1089.0" layoutY="389.0" mnemonicParsing="false" onAction="#onActionExitProgram" prefWidth="80.0" text="Exit" />
+      <ImageView fitHeight="97.0" fitWidth="86.0" layoutX="41.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ModCo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
